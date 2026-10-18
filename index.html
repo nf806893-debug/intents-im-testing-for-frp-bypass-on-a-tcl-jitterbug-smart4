@@ -3,34 +3,83 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>T608G Intent Lab</title>
+<title>T608G Exhaustive Intent Matrix</title>
 <style>
   :root { color-scheme: dark; font-family: system-ui, sans-serif; }
-  body { max-width: 620px; margin: 0 auto; padding: 22px; background: #10131b; color: #f1f5f9; }
-  h1 { margin-bottom: 6px; }
-  h2 { margin-top: 26px; font-size: 1.05rem; color: #e2e8f0; border-bottom: 1px solid #273142; padding-bottom: 6px; }
-  p { color: #b8c2d4; line-height: 1.5; }
-  a { display: block; margin: 10px 0; padding: 14px; border: 1px solid #30394b; border-radius: 12px; background: #1b2332; color: #a9ccff; text-decoration: none; }
-  a:active { background: #303d52; }
-  small { color: #9ca9bd; }
-  .note { padding: 12px; border-left: 3px solid #8093b5; background: #191f2b; border-radius: 5px; }
+  body { max-width: 650px; margin: 0 auto; padding: 22px; background: #0f172a; color: #f8fafc; }
+  h1 { margin-bottom: 4px; font-size: 1.5rem; color: #38bdf8; }
+  p { color: #94a3b8; font-size: 0.95rem; margin-top: 0; line-height: 1.5; }
+  h2 { margin-top: 24px; font-size: 1rem; color: #e2e8f0; border-bottom: 1px solid #334155; padding-bottom: 6px; }
+  a { display: block; margin: 8px 0; padding: 12px; border: 1px solid #1e293b; border-radius: 10px; background: #1e293b; color: #38bdf8; text-decoration: none; font-size: 0.9rem; }
+  a:active { background: #334155; color: #7dd3fc; }
+  .desc { font-size: 0.75rem; color: #64748b; margin-top: -6px; margin-bottom: 10px; padding-left: 12px; }
 </style>
 </head>
 <body>
-<h1>Android Intent Lab</h1>
-<p>TCL T608G · Jitterbug Smart4 · Android</p>
 
-<h2>Targeted Screen Lock & Settings Loops</h2>
-<a href="intent:#Intent;action=android.app.action.SET_NEW_PASSWORD;end">🔑 Direct New PIN / Password Enrollment</a>
-<a href="intent:#Intent;action=android.settings.BIOMETRIC_ENROLL;end">☝️ Fingerprint / Biometric Enrollment</a>
-<a href="intent:#Intent;action=android.settings.SETTINGS;end">⚙️ General Settings</a>
-<a href="intent:#Intent;action=android.settings.WIFI_SETTINGS;end">📶 Wi-Fi Settings</a>
-<a href="intent:#Intent;action=android.settings.SECURITY_SETTINGS;end">🔐 Security Settings</a>
+<h1>Exhaustive Intent Matrix</h1>
+<p>TCL T608G · Android 14 Core Testing Framework</p>
 
-<h2>Setup Wizard & Escape Hooks</h2>
-<a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.HOME;package=com.tcl.setupwizard;end">🚪 TCL Setup Wizard Exit</a>
-<a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.google.android.setupwizard;end">🏁 Google Setup Wizard</a>
+<h2>🔒 Credentials & Protection Enrollment (Variants)</h2>
+<a href="intent:#Intent;action=android.app.action.SET_NEW_PASSWORD;end">🔑 Variant 1: Set New Password Basic</a>
+<div class="desc">Standard system password generation request.</div>
 
-<p class="note">Links request standard Android intents and may be blocked by the system or restrictions.</p>
+<a href="intent:#Intent;action=android.app.action.SET_NEW_PARENT_PROFILE_PASSWORD;end">🔑 Variant 2: Set New Parent Profile Password</a>
+<div class="desc">Legacy workspace security container invocation.</div>
+
+<a href="intent:#Intent;action=android.settings.BIOMETRIC_ENROLL;end">☝️ Variant 3: Biometric/Fingerprint Enrollment</a>
+<div class="desc">The activity that partially loaded previously.</div>
+
+<a href="intent:#Intent;action=android.settings.FINGERPRINT_ENROLL;end">☝️ Variant 4: Explicit Fingerprint Setting Target</a>
+<div class="desc">Bypasses global biometric router to target finger daemon directly.</div>
+
+<a href="intent:#Intent;action=android.settings.FACE_ENROLL;end">🎭 Variant 5: Face Unlock Enrollment Activity</a>
+<div class="desc">Targets the facial scanner setup sub-routing.</div>
+
+<a href="intent:#Intent;action=android.credentials.RESET_CREDENTIALS;end">🔄 Variant 6: Reset Device Credential Storage</a>
+<div class="desc">Attempts to force a wipe of local security profiles.</div>
+
+
+<h2>🛠️ Alternative System Settings Routing</h2>
+<a href="intent:#Intent;action=android.settings.SETTINGS;end">⚙️ Route 1: General Settings Master Activity</a>
+<div class="desc">Standard control center endpoint.</div>
+
+<a href="intent:#Intent;action=android.settings.PRIVACY_SETTINGS;end">🛡️ Route 2: Privacy Management Controls</a>
+<div class="desc">Often bypasses standard application configuration filters.</div>
+
+<a href="intent:#Intent;action=android.settings.CAPTIONING_SETTINGS;end">♿ Route 3: Accessibility Sub-Menu - Captions</a>
+<div class="desc">Lightweight subsystem layout that sometimes escapes setup wizard context.</div>
+
+<a href="intent:#Intent;action=android.settings.USER_DICTIONARY_SETTINGS;end">⌨️ Route 4: User Input & Personal Dictionary</a>
+<div class="desc">Spawns keyboard configuration sub-screens.</div>
+
+<a href="intent:#Intent;action=android.settings.SYSTEM_UPDATE_SETTINGS;end">🔄 Route 5: System OTA Update Status Panel</a>
+<div class="desc">Calls carrier firmware download manager wrappers.</div>
+
+
+<h2>🌐 Accounts & User Provisioning</h2>
+<a href="intent:#Intent;action=android.settings.ADD_ACCOUNT_SETTINGS;end">👤 Profile 1: Add New Account Direct Prompt</a>
+<div class="desc">Asks to register an alternative profile container.</div>
+
+<a href="intent:#Intent;action=android.settings.SYNC_SETTINGS;end">☁️ Profile 2: Core Data Sync Configuration</a>
+<div class="desc">Manages active global accounts on the stack.</div>
+
+<a href="intent:#Intent;action=android.settings.USER_SETTINGS;end">👥 Profile 3: Multi-User / Guest Profile Settings</a>
+<div class="desc">Attempts to switch current user runtime profile entirely.</div>
+
+
+<h2>📦 Provisioning Framework Overrides</h2>
+<a href="intent:#Intent;action=android.app.action.PROVISION_MANAGED_PROFILE;end">🏢 Hook 1: Enterprise Profile Provisioning Daemon</a>
+<div class="desc">Triggers corporate MDM/Work enrollment workflows.</div>
+
+<a href="intent:#Intent;action=android.app.action.PROVISION_MANAGED_DEVICE;end">🏢 Hook 2: Direct Device Provisioning Root</a>
+<div class="desc">Attempts to force-assign global admin management criteria.</div>
+
+<a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.HOME;package=com.tcl.setupwizard;end">🚪 Exit 1: TCL Setup Wizard Base Activity</a>
+<div class="desc">Force-calls manufacturer home application layer.</div>
+
+<a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.google.android.setupwizard;end">🚪 Exit 2: AOSP Setup Wizard Main Launcher</a>
+<div class="desc">Targets standard Google registration onboarding.</div>
+
 </body>
 </html>
