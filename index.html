@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>T608G Exhaustive Intent Matrix</title>
+<title>yo i am finna give up on this shi</title>
 <style>
   :root { color-scheme: dark; font-family: system-ui, sans-serif; }
   body { max-width: 650px; margin: 0 auto; padding: 22px; background: #0f172a; color: #f8fafc; }
@@ -80,6 +80,17 @@
 
 <a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.google.android.setupwizard;end">🚪 Exit 2: AOSP Setup Wizard Main Launcher</a>
 <div class="desc">Targets standard Google registration onboarding.</div>
+
+
+<h2>📱 Device Info & Development Testing</h2>
+<a href="intent:#Intent;action=android.settings.DEVICE_INFO_SETTINGS;end">ℹ️ Open About Phone / Device Info</a>
+<div class="desc">Standard shortcut targeting the system info layout containing Build Number.</div>
+
+<a href="intent:#Intent;action=android.intent.action.MAIN;target=com.android.settings.DeviceInfoSettings;end">ℹ️ Deep-Link: Device Info Activity</a>
+<div class="desc">Explicit activity call to force open the device parameter sub-menu.</div>
+
+<a href="intent:#Intent;action=android.settings.APPLICATION_DEVELOPMENT_SETTINGS;end">🛠️ Direct Open Developer Options</a>
+<div class="desc">Attempts to jump straight to the development settings interface.</div>
 
 </body>
 </html>
