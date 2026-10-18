@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>T608G Elite Intent Lab</title>
+<title>T608G Elite Intent Lab v2</title>
 <style>
   :root { color-scheme: dark; font-family: system-ui, sans-serif; }
   body { max-width: 650px; margin: 0 auto; padding: 22px; background: #0b0f17; color: #e2e8f0; }
@@ -12,55 +12,60 @@
   h2 { margin-top: 28px; font-size: 1.05rem; color: #f1f5f9; border-bottom: 2px solid #1e293b; padding-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
   a { display: block; margin: 10px 0; padding: 14px; border: 1px solid #1e293b; border-radius: 12px; background: #111827; color: #38bdf8; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
   a:active { background: #1f2937; border-color: #38bdf8; color: #60a5fa; }
-  .desc { font-size: 0.78rem; color: #64748b; margin-top: -6px; margin-bottom: 12px; padding-left: 14px; line-line-height: 1.4; }
+  .desc { font-size: 0.78rem; color: #64748b; margin-top: -6px; margin-bottom: 4px; padding-left: 14px; line-height: 1.4; }
+  .source { font-size: 0.72rem; color: #e2e8f0; font-style: italic; margin-bottom: 12px; padding-left: 14px; display: block; }
   .warning-box { padding: 12px; background: #1e1b4b; border: 1px solid #4338ca; border-radius: 8px; font-size: 0.85rem; color: #c7d2fe; margin-bottom: 20px; }
 </style>
 </head>
 <body>
 
-<h1>T608G Elite Intent Lab</h1>
-<p>Custom XDA/Reddit Exploitation Interface · Android 14 Core</p>
+<h1>T608G Elite Intent Lab v2</h1>
+<p>Community Sourced Exploitation Matrix · Android 14 Focus</p>
 
 <div class="warning-box">
-  <strong>Testing Strategy:</strong> Since standard Settings routes are disabled by the Android 14 kernel, focus heavily on the Factory/CIT and Regulatory Sub-User targets below. Look for embedded blue links or a search icon inside any menu that successfully opens.
+  <strong>Testing Directive:</strong> Since you have active JavaScript in Chrome, click through these platform-specific backdoors sequentially. Watch for un-sandboxed settings wrappers or diagnostic sub-menus that let you tap back into the app manager hierarchy.
 </div>
 
-<h2>🛠️ Factory Testing & CIT Hardware Profiles</h2>
-<a href="intent:#Intent;action=android.provider.Telephony.SECRET_CODE;data=android_secret_code://6484;end">⚙️ CIT / MMI Engineering Mode Entry</a>
-<div class="desc">Attempts to initialize the low-level hardware Component Test engine via dialer codes directly.</div>
+<h2>🎛️ Diagnostic Testing Mode Backdoors</h2>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.android.settings;component=com.android.settings.RadioInfo;end">📡 RadioInfo Test Menu Override</a>
+<div class="desc">Forces execution of the cellular radio diagnostic activity panel. If accessed, tapping the left-top back arrow can break directly into the unprotected stock settings app menu.</div>
+<span class="source">Source: XDA-Developers Forums (Universal MTK Settings Bypass Thread)</span>
 
-<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.tcl.factory;component=com.tcl.factory/.FactoryActivity;end">⚙️ Alternate TCL Factory Activity Root</a>
-<div class="desc">Targets proprietary factory diagnostic testing frames specific to TCL devices.</div>
+<a href="intent:#Intent;action=android.provider.Telephony.SECRET_CODE;data=android_secret_code://4636;end">📊 Core Testing Mode (*#*#4636#*#*)</a>
+<div class="desc">Bypasses the phone dialer restriction to open raw system usage statistics and battery parameters. Tapping "Battery Information" followed by the back arrow historically drops you into full Device Settings.</div>
+<span class="source">Source: XDA Android General Archive (Hardware Loophole Database)</span>
 
-<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.mediatek.enginemode;component=com.mediatek.enginemode/.EngineMode;end">⚙️ MediaTek Engineering Mode Master Toggle</a>
-<div class="desc">Direct backdoor to the foundational MTK system engineering console.</div>
-
-
-<h2>👥 Sub-User Provisioning & Retail Overrides</h2>
-<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.google.android.setupwizard;component=com.google.android.setupwizard/.UserSetupService;end">👥 Secondary User Onboarding Module</a>
-<div class="desc">Attempts to slip standard wizard validations by creating an unmanaged sub-profile context.</div>
-
-<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.android.settings;component=com.android.settings.Settings$RegulatoryInfoActivity;end">🛡️ Regulatory Certifications Interface</a>
-<div class="desc">A read-only legal plate that often bypasses layout blocks and contains live system web links.</div>
-
-<a href="intent:#Intent;action=android.settings.REGULATORY_INFO;end">🛡️ Alternate Regulatory Deep-Link</a>
-<div class="desc">Global system target routing to force-open local device compliance records.</div>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.mediatek.enginemode;component=com.mediatek.enginemode/.EngineMode;end">⚡ MediaTek Native EngineMode</a>
+<div class="desc">Targets the hidden, hardware-level SoC chip configuration layout. If this launches, navigate to Log and Debugging to manually turn on USB Debugging (ADB).</div>
+<span class="source">Source: r/androidroot (MediaTek Hardware Exploit Index)</span>
 
 
-<h2>📲 Network, eSIM & Carrier Backdoors</h2>
-<a href="intent:#Intent;action=android.telephony.euicc.action.PROVISION_EMBEDDED_SUBSCRIPTION;end">📶 eSIM Dynamic Provisioning Utility</a>
-<div class="desc">Launches the background network provisioning wizard which features sub-menus for credential entries.</div>
+<h2>🔄 Setup Wizard State Provisioning</h2>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.google.android.gsf.login;component=com.google.android.gsf.login.LoginActivity;end">👤 Google Services Framework Login bypass</a>
+<div class="desc">Forces the background initialization engine of Google Play Services to prompt an unmanaged login flow wrapper.</div>
+<span class="source">Source: r/USMobile (Abandoned Device Provision Recovery Discussion)</span>
 
-<a href="intent:#Intent;action=android.settings.NETWORK_OPERATOR_SETTINGS;end">📶 Cellular Operator Provisioning Node</a>
-<div class="desc">Attempts to force a connection to the primary mobile service settings drawer.</div>
+<a href="intent:#Intent;action=android.app.action.PROVISION_MANAGED_PROFILE;end">🏢 Work Profile MDM Managed Provisioning</a>
+<div class="desc">Instructs the phone's profile manager activity to enroll a corporate device container, which suspends and overwrites consumer FRP flags.</div>
+<span class="source">Source: r/FRPBYPASS (Android 14 Enterprise Provisioning Loops)</span>
+
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.android.settings;component=com.android.settings.Settings$RegulatoryInfoActivity;end">🛡️ Explicit Regulatory Certifications View</a>
+<div class="desc">Launches the read-only legal compliance screen. Because this must remain visible by law, it often slips past sandbox rules and carries live system help links.</div>
+<span class="source">Source: XDA-Developers Forums (TCL Firmware Activity Audits)</span>
 
 
-<h2>🛡️ Local Device Management (MDM) Hooks</h2>
-<a href="intent:#Intent;action=android.app.action.PROVISION_MANAGED_USER;end">🏢 Enterprise Enterprise Profile Initializer</a>
-<div class="desc">Commands the system to build an isolated enterprise/work profile, overriding consumer FRP flags.</div>
+<h2>🔒 Secondary Credential Overrides</h2>
+<a href="intent:#Intent;action=android.settings.FINGERPRINT_ENROLL;end">☝️ Direct Fingerprint Enrollment Daemon</a>
+<div class="desc">Targets the isolated fingerprint registration layout instead of the generic smart lock biometric router that blank-screened previously.</div>
+<span class="source">Source: r/surfaceduo (Direct Application Open Activity Methodology)</span>
 
-<a href="intent:#Intent;action=android.app.action.START_KIOSK_MODE;end">🏢 Force System Kiosk View</a>
-<div class="desc">Attempts to replace the locked setup launcher with a blank terminal canvas.</div>
+<a href="intent:#Intent;action=android.settings.FACE_ENROLL;end">🎭 Face Unlock Security Enrollment</a>
+<div class="desc">Commands the system to initialize the direct facial recognition structure, which may force a password-creation prerequisite layout to draw over Chrome.</div>
+<span class="source">Source: XDA-Developers Forums (Biometric Storage Handshake Exploits)</span>
+
+<a href="intent:#Intent;action=android.credentials.RESET_CREDENTIALS;end">🔑 Force System Credential Reset</a>
+<div class="desc">Launches the background storage engine configuration panel responsible for managing system authority tokens.</div>
+<span class="source">Source: r/FRPBYPASS (AOSP KeyStore Partition Modification Thread)</span>
 
 </body>
 </html>
