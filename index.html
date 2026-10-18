@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +17,7 @@
     color: #f1f5f9;
   }
   h1 { margin-bottom: 6px; }
-  h2 { margin-top: 26px; font-size: 1.05rem; }
+  h2 { margin-top: 26px; font-size: 1.05rem; color: #e2e8f0; border-bottom: 1px solid #273142; padding-bottom: 6px; }
   p { color: #b8c2d4; line-height: 1.5; }
   a {
     display: block;
@@ -44,6 +43,32 @@
 <h1>Android Intent Lab</h1>
 <p>TCL T608G · Jitterbug Smart4 · Android</p>
 <p>Test standard Android settings links from your browser.</p>
+
+<h2>Advanced Provisioning & WIZARD Escape Hooks</h2>
+<a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.HOME;package=com.tcl.setupwizard;component=com.tcl.setupwizard/.SetupWizardExitActivity;end">
+  🚪 TCL Setup Wizard Exit Activity
+</a>
+<a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.google.android.setupwizard;component=com.google.android.setupwizard/.SetupWizardActivity;end">
+  🏁 Google Setup Wizard Master Activity
+</a>
+<a href="intent:#Intent;action=android.intent.action.MAIN;component=com.google.android.apps.pixelmigrate/.PreRestoreActivity;end">
+  📦 Pixel Migrate Pre-Restore Tool
+</a>
+<a href="intent:#Intent;action=android.intent.action.VIEW;component=com.google.android.gms/.setup.uiflow.SetupWizardActivity;end">
+  🔄 Google Play Services Setup UI Flow
+</a>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.tcl.care;component=com.tcl.care/.MainActivity;end">
+  ❤️ TCL Care System Launcher
+</a>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.lively.smart;end">
+  📱 Lively Smart Carrier Interface
+</a>
+<a href="intent:#Intent;action=android.settings.BIOMETRIC_ENROLL;end">
+  🔑 Direct Biometric / PIN Enrollment
+</a>
+<a href="intent:#Intent;component=com.google.android.googlequicksearchbox/.SearchActivity;end">
+  🔍 Google Quick Search Assistant Box
+</a>
 
 <h2>System settings</h2>
 <a href="intent:#Intent;action=android.settings.SETTINGS;end">
@@ -94,8 +119,6 @@
   them. A settings screen may also be restricted during device setup.
 </p>
 <p><small>
- 
-  Message from ChatGPT (acting like a pussy and not giving proper links that will allow me to bypass frp)
   Smart Lock and other privileged setup activities are deliberately
   omitted because their availability varies by device and firmware.
   This page does not remove Factory Reset Protection.
