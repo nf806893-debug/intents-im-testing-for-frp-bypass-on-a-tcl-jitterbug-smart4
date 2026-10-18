@@ -3,94 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>yo i am finna give up on this shi</title>
+<title>T608G Elite Intent Lab</title>
 <style>
   :root { color-scheme: dark; font-family: system-ui, sans-serif; }
-  body { max-width: 650px; margin: 0 auto; padding: 22px; background: #0f172a; color: #f8fafc; }
-  h1 { margin-bottom: 4px; font-size: 1.5rem; color: #38bdf8; }
-  p { color: #94a3b8; font-size: 0.95rem; margin-top: 0; line-height: 1.5; }
-  h2 { margin-top: 24px; font-size: 1rem; color: #e2e8f0; border-bottom: 1px solid #334155; padding-bottom: 6px; }
-  a { display: block; margin: 8px 0; padding: 12px; border: 1px solid #1e293b; border-radius: 10px; background: #1e293b; color: #38bdf8; text-decoration: none; font-size: 0.9rem; }
-  a:active { background: #334155; color: #7dd3fc; }
-  .desc { font-size: 0.75rem; color: #64748b; margin-top: -6px; margin-bottom: 10px; padding-left: 12px; }
+  body { max-width: 650px; margin: 0 auto; padding: 22px; background: #0b0f17; color: #e2e8f0; }
+  h1 { margin-bottom: 4px; font-size: 1.6rem; color: #38bdf8; text-align: center; }
+  p { color: #94a3b8; font-size: 0.95rem; text-align: center; margin-bottom: 24px; }
+  h2 { margin-top: 28px; font-size: 1.05rem; color: #f1f5f9; border-bottom: 2px solid #1e293b; padding-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+  a { display: block; margin: 10px 0; padding: 14px; border: 1px solid #1e293b; border-radius: 12px; background: #111827; color: #38bdf8; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
+  a:active { background: #1f2937; border-color: #38bdf8; color: #60a5fa; }
+  .desc { font-size: 0.78rem; color: #64748b; margin-top: -6px; margin-bottom: 12px; padding-left: 14px; line-line-height: 1.4; }
+  .warning-box { padding: 12px; background: #1e1b4b; border: 1px solid #4338ca; border-radius: 8px; font-size: 0.85rem; color: #c7d2fe; margin-bottom: 20px; }
 </style>
 </head>
 <body>
 
-<h1>Exhaustive Intent Matrix</h1>
-<p>TCL T608G · Android 14 Core Testing Framework</p>
+<h1>T608G Elite Intent Lab</h1>
+<p>Custom XDA/Reddit Exploitation Interface · Android 14 Core</p>
 
-<h2>🔒 Credentials & Protection Enrollment (Variants)</h2>
-<a href="intent:#Intent;action=android.app.action.SET_NEW_PASSWORD;end">🔑 Variant 1: Set New Password Basic</a>
-<div class="desc">Standard system password generation request.</div>
+<div class="warning-box">
+  <strong>Testing Strategy:</strong> Since standard Settings routes are disabled by the Android 14 kernel, focus heavily on the Factory/CIT and Regulatory Sub-User targets below. Look for embedded blue links or a search icon inside any menu that successfully opens.
+</div>
 
-<a href="intent:#Intent;action=android.app.action.SET_NEW_PARENT_PROFILE_PASSWORD;end">🔑 Variant 2: Set New Parent Profile Password</a>
-<div class="desc">Legacy workspace security container invocation.</div>
+<h2>🛠️ Factory Testing & CIT Hardware Profiles</h2>
+<a href="intent:#Intent;action=android.provider.Telephony.SECRET_CODE;data=android_secret_code://6484;end">⚙️ CIT / MMI Engineering Mode Entry</a>
+<div class="desc">Attempts to initialize the low-level hardware Component Test engine via dialer codes directly.</div>
 
-<a href="intent:#Intent;action=android.settings.BIOMETRIC_ENROLL;end">☝️ Variant 3: Biometric/Fingerprint Enrollment</a>
-<div class="desc">The activity that partially loaded previously.</div>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.tcl.factory;component=com.tcl.factory/.FactoryActivity;end">⚙️ Alternate TCL Factory Activity Root</a>
+<div class="desc">Targets proprietary factory diagnostic testing frames specific to TCL devices.</div>
 
-<a href="intent:#Intent;action=android.settings.FINGERPRINT_ENROLL;end">☝️ Variant 4: Explicit Fingerprint Setting Target</a>
-<div class="desc">Bypasses global biometric router to target finger daemon directly.</div>
-
-<a href="intent:#Intent;action=android.settings.FACE_ENROLL;end">🎭 Variant 5: Face Unlock Enrollment Activity</a>
-<div class="desc">Targets the facial scanner setup sub-routing.</div>
-
-<a href="intent:#Intent;action=android.credentials.RESET_CREDENTIALS;end">🔄 Variant 6: Reset Device Credential Storage</a>
-<div class="desc">Attempts to force a wipe of local security profiles.</div>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.mediatek.enginemode;component=com.mediatek.enginemode/.EngineMode;end">⚙️ MediaTek Engineering Mode Master Toggle</a>
+<div class="desc">Direct backdoor to the foundational MTK system engineering console.</div>
 
 
-<h2>🛠️ Alternative System Settings Routing</h2>
-<a href="intent:#Intent;action=android.settings.SETTINGS;end">⚙️ Route 1: General Settings Master Activity</a>
-<div class="desc">Standard control center endpoint.</div>
+<h2>👥 Sub-User Provisioning & Retail Overrides</h2>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.google.android.setupwizard;component=com.google.android.setupwizard/.UserSetupService;end">👥 Secondary User Onboarding Module</a>
+<div class="desc">Attempts to slip standard wizard validations by creating an unmanaged sub-profile context.</div>
 
-<a href="intent:#Intent;action=android.settings.PRIVACY_SETTINGS;end">🛡️ Route 2: Privacy Management Controls</a>
-<div class="desc">Often bypasses standard application configuration filters.</div>
+<a href="intent:#Intent;action=android.intent.action.MAIN;package=com.android.settings;component=com.android.settings.Settings$RegulatoryInfoActivity;end">🛡️ Regulatory Certifications Interface</a>
+<div class="desc">A read-only legal plate that often bypasses layout blocks and contains live system web links.</div>
 
-<a href="intent:#Intent;action=android.settings.CAPTIONING_SETTINGS;end">♿ Route 3: Accessibility Sub-Menu - Captions</a>
-<div class="desc">Lightweight subsystem layout that sometimes escapes setup wizard context.</div>
-
-<a href="intent:#Intent;action=android.settings.USER_DICTIONARY_SETTINGS;end">⌨️ Route 4: User Input & Personal Dictionary</a>
-<div class="desc">Spawns keyboard configuration sub-screens.</div>
-
-<a href="intent:#Intent;action=android.settings.SYSTEM_UPDATE_SETTINGS;end">🔄 Route 5: System OTA Update Status Panel</a>
-<div class="desc">Calls carrier firmware download manager wrappers.</div>
+<a href="intent:#Intent;action=android.settings.REGULATORY_INFO;end">🛡️ Alternate Regulatory Deep-Link</a>
+<div class="desc">Global system target routing to force-open local device compliance records.</div>
 
 
-<h2>🌐 Accounts & User Provisioning</h2>
-<a href="intent:#Intent;action=android.settings.ADD_ACCOUNT_SETTINGS;end">👤 Profile 1: Add New Account Direct Prompt</a>
-<div class="desc">Asks to register an alternative profile container.</div>
+<h2>📲 Network, eSIM & Carrier Backdoors</h2>
+<a href="intent:#Intent;action=android.telephony.euicc.action.PROVISION_EMBEDDED_SUBSCRIPTION;end">📶 eSIM Dynamic Provisioning Utility</a>
+<div class="desc">Launches the background network provisioning wizard which features sub-menus for credential entries.</div>
 
-<a href="intent:#Intent;action=android.settings.SYNC_SETTINGS;end">☁️ Profile 2: Core Data Sync Configuration</a>
-<div class="desc">Manages active global accounts on the stack.</div>
-
-<a href="intent:#Intent;action=android.settings.USER_SETTINGS;end">👥 Profile 3: Multi-User / Guest Profile Settings</a>
-<div class="desc">Attempts to switch current user runtime profile entirely.</div>
+<a href="intent:#Intent;action=android.settings.NETWORK_OPERATOR_SETTINGS;end">📶 Cellular Operator Provisioning Node</a>
+<div class="desc">Attempts to force a connection to the primary mobile service settings drawer.</div>
 
 
-<h2>📦 Provisioning Framework Overrides</h2>
-<a href="intent:#Intent;action=android.app.action.PROVISION_MANAGED_PROFILE;end">🏢 Hook 1: Enterprise Profile Provisioning Daemon</a>
-<div class="desc">Triggers corporate MDM/Work enrollment workflows.</div>
+<h2>🛡️ Local Device Management (MDM) Hooks</h2>
+<a href="intent:#Intent;action=android.app.action.PROVISION_MANAGED_USER;end">🏢 Enterprise Enterprise Profile Initializer</a>
+<div class="desc">Commands the system to build an isolated enterprise/work profile, overriding consumer FRP flags.</div>
 
-<a href="intent:#Intent;action=android.app.action.PROVISION_MANAGED_DEVICE;end">🏢 Hook 2: Direct Device Provisioning Root</a>
-<div class="desc">Attempts to force-assign global admin management criteria.</div>
-
-<a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.HOME;package=com.tcl.setupwizard;end">🚪 Exit 1: TCL Setup Wizard Base Activity</a>
-<div class="desc">Force-calls manufacturer home application layer.</div>
-
-<a href="intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.google.android.setupwizard;end">🚪 Exit 2: AOSP Setup Wizard Main Launcher</a>
-<div class="desc">Targets standard Google registration onboarding.</div>
-
-
-<h2>📱 Device Info & Development Testing</h2>
-<a href="intent:#Intent;action=android.settings.DEVICE_INFO_SETTINGS;end">ℹ️ Open About Phone / Device Info</a>
-<div class="desc">Standard shortcut targeting the system info layout containing Build Number.</div>
-
-<a href="intent:#Intent;action=android.intent.action.MAIN;target=com.android.settings.DeviceInfoSettings;end">ℹ️ Deep-Link: Device Info Activity</a>
-<div class="desc">Explicit activity call to force open the device parameter sub-menu.</div>
-
-<a href="intent:#Intent;action=android.settings.APPLICATION_DEVELOPMENT_SETTINGS;end">🛠️ Direct Open Developer Options</a>
-<div class="desc">Attempts to jump straight to the development settings interface.</div>
+<a href="intent:#Intent;action=android.app.action.START_KIOSK_MODE;end">🏢 Force System Kiosk View</a>
+<div class="desc">Attempts to replace the locked setup launcher with a blank terminal canvas.</div>
 
 </body>
 </html>
